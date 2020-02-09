@@ -4,15 +4,12 @@ import React from 'react';
 
 class App extends React.Component {
 
-  //an initial test, temporary:
+  //an initial test, temporary, start with just data then check other aspects in this case data.transactions:
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/accounts', {
-   
-      
-
+    fetch('http://localhost:3000/api/v1/accounts/1', {
     })
     .then(resp => resp.json())
-    .then(data => console.log(data[0]))
+    .then(data => console.log(data.transactions))
   
   }
 
