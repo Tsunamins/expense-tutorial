@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux' //to allow dispatching actions to update store connection
-import fetchAccounts from './actions/fetchAccounts'
+//below import removed here bc used in AccountsContainer instead and import here AccountsContainer instead
+//import fetchAccounts from './actions/fetchAccounts'
+import AccountsContainer from './containers/AccountsContainer'
 //style sheet import to remember
 //import './App.css';
 
@@ -18,7 +20,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-      App
+        <AccountsContainer />
       </div>
     );
    }
@@ -27,11 +29,11 @@ class App extends React.Component {
 
 
 
+export default connect()(App);
 
+//below was result of initial explanations of these features of react/redux, connect, actions, etc. most moved to AccountsContainer
 //this connect automatically calls dispatch on the return value of fetchAccounts
-export default connect(null, {fetchAccounts})(App); //can call this.props.fetchAccounts
-
-
+//export default connect(null, {fetchAccounts})(App); //can call this.props.fetchAccounts
 
 //some explanations below:
 
@@ -41,8 +43,6 @@ export default connect(null, {fetchAccounts})(App); //can call this.props.fetchA
 //   }
 
 // }
-
-
 
 
 //connect can accept mapStateToProps, mapDispatchToProps, or a direct reference to an action
