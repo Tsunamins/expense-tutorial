@@ -5,7 +5,7 @@ import {createStore, applyMiddleware, compose} from 'redux'; //for store setup, 
 
 import thunk from 'redux-thunk'; //for thunk, enable async proc.
 import {Provider} from 'react-redux'; //wrap app to use redux, any comp wrapped in prov will have access to redux store
- 
+import accountReducer from './reducers/accountReducer'
 //import './index.css';
 import App from './App';
 
@@ -17,7 +17,7 @@ import App from './App';
 //this gives option to use the standard or switch to compose if not avail
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(accountReducer, composeEnhancers(applyMiddleware(thunk)))
 //store is where storing data, reducers say what you want to do to the data based on certain conditions/changes, dispatching actions to that reducer
 //reducer is what you want to update about the current store, reducer will then return a new version of that store
 
