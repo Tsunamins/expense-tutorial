@@ -1,7 +1,7 @@
 //responsible for updating parts of store that have to do with accounts
 //reducer - take in previous state, and an action, then will update based on action type
 //reducer is a function, can also be setup as arrow
-                                //set initial state to object, 
+                                //set initial state to object, coming from actions, in this case getting accounts
 export default function accountReducer(state = {accounts: []}, action) {
     switch (action.type) {
       case 'FETCH_ACCOUNTS':
