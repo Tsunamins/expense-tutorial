@@ -4,7 +4,7 @@ import {addAccount} from '../actions/addAccount'
 
 
 //needs class, bc will use form, control values, in this example this is controlled via a *local state* rather than directly with redux store
-//although can be done from the store
+//although can be done from the store, if needing an example the Globetrotter build on learn instruct done by howard has the values controlled from the store, or maybe not
 //the local state will hold the form values and work with them from there
 class AccountInput extends React.Component {
 
@@ -15,7 +15,7 @@ class AccountInput extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      // evaluates ket, then evaluates input
+      // evaluates key, then evaluates input
       [event.target.name]: event.target.value
     })
   }
@@ -23,7 +23,9 @@ class AccountInput extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.addAccount(this.state)
+    //setState is asynchronous, so could actually be placed before this.props.addAccount(this.state) and still work correctly
     this.setState({
+      // this allows to clear form so that the inputed values don't stay in the form fields
       name: '',
       balance: ''
     })
