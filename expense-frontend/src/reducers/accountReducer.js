@@ -7,6 +7,7 @@ export default function accountReducer(state = {accounts: []}, action) {
       case 'FETCH_ACCOUNTS':
         return {accounts: action.payload}
       case 'ADD_ACCOUNT':
+        //spread operator for object allows addition of more keys later  //action.payload is adding of new account, this holds the new account
         return {...state, accounts: [...state.accounts, action.payload]}
       case 'ADD_TRANSACTION':
         let accounts = state.accounts.map(account => {
