@@ -5,6 +5,7 @@ import {createStore, applyMiddleware, compose} from 'redux'; //for store setup, 
 
 import thunk from 'redux-thunk'; //for thunk, enable async proc.
 import {Provider} from 'react-redux'; //wrap app to use redux, any comp wrapped in prov will have access to redux store
+import {BrowserRouter as Router} from 'react-router-dom'; //imports and allows use of Router, can be just set with BrowserRouter, but allows keyword Router to be used instead here, react-router-dom allows some additional tags
 import accountReducer from './reducers/accountReducer'
 //import './index.css';
 import App from './App';
@@ -23,10 +24,14 @@ let store = createStore(accountReducer, composeEnhancers(applyMiddleware(thunk))
 
 //add Provider around app = Any child component of App will have access to the store that is passed into the Provider
 //store is passed into provider as a prop, must be store={storeName}
+//below, wrapping Router allows any app and child of app access to setting up Routes and using Links
+//can also just set up within App
 ReactDOM.render(
 
 <Provider store={store}>
-    <App />
+    <Router>
+        <App />
+    </Router>
 </Provider>
 , document.getElementById('root'));
 
