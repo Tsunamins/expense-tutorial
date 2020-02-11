@@ -17,6 +17,11 @@ const Accounts = (props) => {
           <Link to={`/accounts/${account.id}`}>{account.name} - ${account.balance}</Link>
         </li> )}
     </div>
+    // before this looked as above, a basic passing in of account componnent was used:
+    //<div>
+    //  {props.accounts.map(account => 
+    //    <li key={account.id}>Account account={account/></li>})}
+    //</div>
 
   )
 }
