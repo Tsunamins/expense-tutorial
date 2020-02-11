@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom' //allow when acct doesn't exist
 import AccountEdit from './AccountEdit'
 
 import TransactionsContainer from '../containers/TransactionsContainer'
@@ -19,8 +19,12 @@ const Account = (props) => {
 
     <div>
       <h2>
+          {/* but this below isn't the best idea bc only will work while navigating through links, so idea would be to revisit how to implement redirects */}
+          {/* {account ? null : <Redirect to ='/accounts'/>} */}
+          {/* below is setup this way if the first time it renders props are undefined */}
         {account ? account.name : null} - {account ? account.balance : null}
       </h2>
+      {/* sending out assoc account to Trans cont */}
       <TransactionsContainer account={account}/><br/>
       <h4>Edit Account</h4>
       <AccountEdit account={account}/>
