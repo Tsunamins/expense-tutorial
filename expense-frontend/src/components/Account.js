@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom' //allow when acct doesn't exist
+//import {Redirect} from 'react-router-dom' //allow when acct doesn't exist
 import AccountEdit from './AccountEdit'
 
 import TransactionsContainer from '../containers/TransactionsContainer'
@@ -10,9 +10,10 @@ import TransactionsContainer from '../containers/TransactionsContainer'
 const Account = (props) => {
 
   console.log(props)
+  //not best to use this line below bc finds account #s based on how many there are not on the actual id
   // let account = props.accounts[props.match.params.id - 1]
   //gets id for url/route in AccountsContainer
-  let account = props.accounts.filter(account => account.id == props.match.params.id)[0]
+  let account = props.accounts.filter(account => account.id === props.match.params.id)[0]
 
   console.log(account)
   return (
